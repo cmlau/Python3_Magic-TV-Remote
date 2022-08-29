@@ -1,7 +1,7 @@
 # Python3_MagicTV-Remote
 Python 3 script for my MTV9600D
 
-test.py is a testing script for you to try sending button message to your MagicTV device since I am not sure which model will this script work on
+test.py is a testing script for you to try sending button message to your MagicTV device since I am not sure which model can this script work on.
 
 mytvremote.pyw is the script to be used as remote:
 - This script does not discover your MagicTV devices in your network. It requires the input of the IP address assigned to your MagicTV device. Therefore it works best if your device has a fixed IP. (If you find two IP addresses from the device system settings, try them both one by one).
