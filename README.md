@@ -1,4 +1,4 @@
-# Python3_Magic-TV-Remote
+# Python3_MagicTV-Remote
 Python 3 script for my MTV9600D
 
 test.py is a testing script for you to try sending button message to MagicTV device
