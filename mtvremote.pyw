@@ -4,6 +4,8 @@ import time
 import codecs
 import tkinter
 import tkinter.simpledialog
+import tkinter.font
+import sys
 decode_hex = codecs.getdecoder("hex_codec")
 
 ### Change the followings: ###
@@ -69,6 +71,24 @@ BUTTON_GREEN = '4bb4'
 BUTTON_YELLOW = '4cb3'
 BUTTON_BLUE = '4db2'
 
+import sys
+if hasattr(sys, 'getandroidapilevel'):
+    TEXT_BACK = "BACK"
+    TEXT_MUTE = "Mute"
+    TEXT_RECORD = "⬤"
+    TEXT_PAUSE = "❚❚"
+    TEXT_STOP = "■"
+    TEXT_REVERSE = "«"
+    TEXT_FORWARD = "»"
+else:
+    TEXT_BACK = "🔙"
+    TEXT_MUTE = "Mute 🔇"
+    TEXT_RECORD = "⏺"
+    TEXT_PAUSE = "⏸"
+    TEXT_STOP = "⏹"
+    TEXT_REVERSE = "⏪"
+    TEXT_FORWARD = "⏩"
+    
 def verifybuttoncode():
     for k, v in list(globals().items()):
         if k[0:6] == "BUTTON":
@@ -152,7 +172,8 @@ def btn_pressed(button_name):
         sock.close()
 
 root = tkinter.Tk()
-root.option_add("*Font", "courier 12")
+SYMBOL_FONT = tkinter.font.Font(family="Segoe UI Symbol", size=12)
+root.option_add("*Font", "arial 12")
 root.configure(bg="#696969")
 root.title("MTV Remote")
 
@@ -193,7 +214,7 @@ btn_audio = tkinter.Button(frame_buttons, text="Audio", width="10", command= lam
 btn_audio.grid(row=4, column=2, padx=2, sticky="w")
 btn_subtitle = tkinter.Button(frame_buttons, text="Subtitle", width="10", command= lambda: btn_pressed('BUTTON_SUBTITLE'), state="disabled", bg='#ffffff')
 btn_subtitle.grid(row=4, column=3, padx=2, sticky="w")
-btn_back = tkinter.Button(frame_buttons, text="🔙", width="10", command= lambda: btn_pressed('BUTTON_BACK'), state="disabled", bg='#000000', fg='#ffffff')
+btn_back = tkinter.Button(frame_buttons, text=TEXT_BACK, width="10", command= lambda: btn_pressed('BUTTON_BACK'), font=SYMBOL_FONT, state="disabled", bg='#000000', fg='#ffffff')
 btn_back.grid(row=5, column=1, padx=2, sticky="w")
 btn_info = tkinter.Button(frame_buttons, text="ⓘ", width="10", command= lambda: btn_pressed('BUTTON_INFO'), state="disabled", bg='#000000', fg='#ffffff')
 btn_info.grid(row=5, column=3, padx=2, sticky="w")
@@ -215,7 +236,7 @@ frame_buttons.grid_rowconfigure(10, minsize=10)
 
 btn_volup = tkinter.Button(frame_buttons, text="Vol ↑", width="10", command= lambda: btn_pressed('BUTTON_VOLUP'), state="disabled", bg='#ffffff')
 btn_volup.grid(row=11, column=1, padx=2, sticky="w")
-btn_mute = tkinter.Button(frame_buttons, text="Mute 🔇", width="10", command= lambda: btn_pressed('BUTTON_MUTE'), state="disabled", bg='#ffffff')
+btn_mute = tkinter.Button(frame_buttons, text=TEXT_MUTE, width="10", command= lambda: btn_pressed('BUTTON_MUTE'), font=SYMBOL_FONT, state="disabled", bg='#ffffff')
 btn_mute.grid(row=11, column=2, padx=2, sticky="w")
 btn_chup = tkinter.Button(frame_buttons, text="Ch/Pg ↑", width="10", command= lambda: btn_pressed('BUTTON_VOLDOWN'), state="disabled", bg='#ffffff')
 btn_chup.grid(row=11, column=3, padx=2, sticky="w")
@@ -226,23 +247,23 @@ btn_chdown.grid(row=12, column=3, padx=2, sticky="w")
 
 frame_buttons.grid_rowconfigure(13, minsize=10)
 
-btn_record = tkinter.Button(frame_buttons, text="⏺", width="10", command= lambda: btn_pressed('BUTTON_RECORD'), state="disabled", bg='#ff0000', fg='#ffffff')
+btn_record = tkinter.Button(frame_buttons, text=TEXT_RECORD, width="10", command= lambda: btn_pressed('BUTTON_RECORD'), font=SYMBOL_FONT, state="disabled", bg='#ff0000', fg='#ffffff')
 btn_record.grid(row=14, column=1, padx=2, sticky="w")
-btn_pause = tkinter.Button(frame_buttons, text="⏸", width="10", command= lambda: btn_pressed('BUTTON_PAUSE'), state="disabled", bg='#ffff00')
+btn_pause = tkinter.Button(frame_buttons, text=TEXT_PAUSE, width="10", command= lambda: btn_pressed('BUTTON_PAUSE'), font=SYMBOL_FONT, state="disabled", bg='#ffff00')
 btn_pause.grid(row=14, column=2, padx=2, sticky="w")
-btn_stop = tkinter.Button(frame_buttons, text="⏹", width="10", command= lambda: btn_pressed('BUTTON_STOP'), state="disabled", bg='#000000', fg='#ffffff')
+btn_stop = tkinter.Button(frame_buttons, text=TEXT_STOP, width="10", command= lambda: btn_pressed('BUTTON_STOP'), font=SYMBOL_FONT, state="disabled", bg='#000000', fg='#ffffff')
 btn_stop.grid(row=14, column=3, padx=2, sticky="w")
-btn_reverse = tkinter.Button(frame_buttons, text="⏪", width="10", command= lambda: btn_pressed('BUTTON_REVERSE'), state="disabled", bg='#000000', fg='#ffffff')
+btn_reverse = tkinter.Button(frame_buttons, text=TEXT_REVERSE, width="10", command= lambda: btn_pressed('BUTTON_REVERSE'), font=SYMBOL_FONT, state="disabled", bg='#000000', fg='#ffffff')
 btn_reverse.grid(row=15, column=1, padx=2, sticky="w")
-btn_play = tkinter.Button(frame_buttons, text="▶", width="10", command= lambda: btn_pressed('BUTTON_PLAY'), state="disabled", bg='#ffff00')
+btn_play = tkinter.Button(frame_buttons, text="▶", width="10", command= lambda: btn_pressed('BUTTON_PLAY'), font=SYMBOL_FONT, state="disabled", bg='#ffff00')
 btn_play.grid(row=15, column=2, padx=2, sticky="w")
-btn_forward = tkinter.Button(frame_buttons, text="⏩", width="10", command= lambda: btn_pressed('BUTTON_FORWARD'), state="disabled", bg='#000000', fg='#ffffff')
+btn_forward = tkinter.Button(frame_buttons, text=TEXT_FORWARD, width="10", command= lambda: btn_pressed('BUTTON_FORWARD'), font=SYMBOL_FONT, state="disabled", bg='#000000', fg='#ffffff')
 btn_forward.grid(row=15, column=3, padx=2, sticky="w")
-btn_replay = tkinter.Button(frame_buttons, text="⏮", width="10", command= lambda: btn_pressed('BUTTON_REPLAY'), state="disabled", bg='#000000', fg='#ffffff')
+btn_replay = tkinter.Button(frame_buttons, text="⏮", width="10", command= lambda: btn_pressed('BUTTON_REPLAY'), font=SYMBOL_FONT, state="disabled", bg='#000000', fg='#ffffff')
 btn_replay.grid(row=16, column=1, padx=2, sticky="w")
-btn_livesrc = tkinter.Button(frame_buttons, text="Live Src", width="10", command= lambda: btn_pressed('BUTTON_LIVESRC'), state="disabled", bg='#ffffff', fg='#000000')
+btn_livesrc = tkinter.Button(frame_buttons, text="Live Src", width="10", command= lambda: btn_pressed('BUTTON_LIVESRC'), font=SYMBOL_FONT, state="disabled", bg='#ffffff', fg='#000000')
 btn_livesrc.grid(row=16, column=2, padx=2, sticky="w")
-btn_skip = tkinter.Button(frame_buttons, text="⏭", width="10", command= lambda: btn_pressed('BUTTON_SKIP'), state="disabled", bg='#000000', fg='#ffffff')
+btn_skip = tkinter.Button(frame_buttons, text="⏭", width="10", command= lambda: btn_pressed('BUTTON_SKIP'), font=SYMBOL_FONT, state="disabled", bg='#000000', fg='#ffffff')
 btn_skip.grid(row=16, column=3, padx=2, sticky="w")
 
 frame_buttons.grid_rowconfigure(17, minsize=10)
@@ -290,17 +311,3 @@ btn_blue.grid(row=1, column=7, padx=2)
 connect()
 
 root.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
