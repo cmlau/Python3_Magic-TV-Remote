@@ -12,7 +12,7 @@ mytvremote.pyw is the script to be used as remote:
 I may not be free to update this script in the near future.  
 Feel free to fork the project if you want to.
 
-###　Developed based on the followings: 
-https://github.com/mob41/MagicTVRemote-API  
-https://github.com/netleave/MagicTV-remote-python 
-"mob41" and "netleave", thank you.
+###　Developed based on the followings:  
+https://github.com/mob41/MagicTVRemote-API   
+https://github.com/netleave/MagicTV-remote-python  
+Thanks to their authors "mob41" and "netleave".
