@@ -8,7 +8,9 @@ mytvremote.pyw is the script to be used as remote
 - Not sure if some models do not support acknowledgement, therefore there is a boolean "need_acknowledgement" for changing. Acknowledgement is a response sent back from MagicTV device after receiving a button message.
 
 Developed based on the followings:
+
 https://github.com/netleave/MagicTV-remote-python
+
 https://github.com/mob41/MagicTVRemote-API
 
 Thanks
