@@ -238,7 +238,7 @@ btn_volup = tkinter.Button(frame_buttons, text="Vol ↑", width="8", command= la
 btn_volup.grid(row=11, column=1, padx=2, sticky="w")
 btn_mute = tkinter.Button(frame_buttons, text=TEXT_MUTE, width="8", command= lambda: btn_pressed('BUTTON_MUTE'), font=SYMBOL_FONT, state="disabled", bg='#ffffff')
 btn_mute.grid(row=11, column=2, padx=2, sticky="w")
-btn_chup = tkinter.Button(frame_buttons, text="Ch/Pg ↑", width="8", command= lambda: btn_pressed('BUTTON_VOLDOWN'), state="disabled", bg='#ffffff')
+btn_chup = tkinter.Button(frame_buttons, text="Ch/Pg ↑", width="8", command= lambda: btn_pressed('BUTTON_CHUP'), state="disabled", bg='#ffffff')
 btn_chup.grid(row=11, column=3, padx=2, sticky="w")
 btn_voldown = tkinter.Button(frame_buttons, text="Vol ↓", width="8", command= lambda: btn_pressed('BUTTON_VOLDOWN'), state="disabled", bg='#ffffff')
 btn_voldown.grid(row=12, column=1, padx=2, sticky="w")
